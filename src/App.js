@@ -107,7 +107,7 @@ function App() {
         <SignOutButton />
       </AuthenticatedTemplate>
       <UnauthenticatedTemplate>
-        <p>This will only render if a user is not signed-in. New change</p>
+        <p>This page will only render if a user is not signed-in.</p>
         <SignInButton />
       </UnauthenticatedTemplate>
     </>
