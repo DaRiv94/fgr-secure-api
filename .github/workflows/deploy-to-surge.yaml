@@ -1,0 +1,23 @@
+name: Deploy Website via Surge
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Deploying to surge
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8
+      - run: npm install -g surge
+      - run: npm run build
+      - run: cd ./build
+      - run: cp ./index.html ./200.html
+      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
