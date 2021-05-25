@@ -29,7 +29,8 @@ function signOutClickHandler(instance) {
   console.log("instance: ", instance)
   const logoutRequest = {
     account: instance.getAccountByHomeId("homeAccountId"),
-    postLogoutRedirectUri: "http://localhost:3000"
+    postLogoutRedirectUri: "https://fgrsecure.surge.sh"
+    // postLogoutRedirectUri: "http://localhost:3000"
   }
   instance.logoutRedirect(logoutRequest);
 }
@@ -58,6 +59,7 @@ async function callBackendAPI(accessToken){
   const { instance, accounts } = useMsal();
   const [graphData, setGraphData] = useState(null);
   const [backendapiData, setBackendapiData] = useState(null);
+  const [backendMockData, setBackendMockData] = useState(null);
 
   const loginRequest = {
     scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/api/demo.read","https://fgrsolutionsb2c.onmicrosoft.com/api/demo.write"]
@@ -70,7 +72,7 @@ async function callBackendAPI(accessToken){
       ...loginRequest,
       account: accounts[0]
     }).then(async (response) => {
-      console.log("response:", response)
+      console.log("RequestProfileData response:", response)
       setGraphData(response)
       let BackendAPI_response = await callBackendAPI(response.accessToken)
       setBackendapiData(BackendAPI_response)
@@ -78,6 +80,21 @@ async function callBackendAPI(accessToken){
 
     });
   }
+
+  async function CallMockAPIEndpoint(){
+
+      const options = {
+        headers: {'Authorization': graphData.accessToken}
+      };
+      
+      let response = await axios.get('https://fgr-secure-api-management.azure-api.net/fgr-secure-function-app-1/HttpTrigger1', options);
+      // let response = await axios.get('https://fgr-secure-api-management.azure-api.net/mock1/mockget', options);
+      console.log("CallMockAPIEndpoint response: ",response)
+      setBackendMockData(response.data)
+      return response.data
+  }
+
+
   return (<>
     <h5 className="card-title">PROFILE CONTENT {accounts[0].name}</h5>
     {graphData ?
@@ -86,14 +103,19 @@ async function callBackendAPI(accessToken){
       <p>{JSON.stringify(graphData.accessToken)}</p>
       <p>{JSON.stringify(backendapiData)}</p>
       {/* <p>{callBackendAPI(graphData.accessToken)}</p> */}
-      </>
       
+
+      <button onClick={CallMockAPIEndpoint} >CALL MOCK API ENDPOINT</button>
+      {backendMockData ? <>{backendMockData}</>:<p>No Mock Data</p>}
+      </>
       :
       <button onClick={RequestProfileData}>Request Profile Information</button>
       
     }
   </>)
 }
+
+
 
 
 // Remember that MsalProvider must be rendered somewhere higher up in the component tree
