@@ -32,6 +32,7 @@ export class HomePage extends Component {
         let accounts=this.props.instance.getAllAccounts()
 
         //TODO NEED TO CHECK FOR LOGINED BEFORE RUNNING THIS
+        //MIGHT NEED TO PUT THIS IN A LOWER COMPONENT AFTER AUTHORIZED
         // instance.acquireTokenSilent({
         //     ...loginRequest,
         //     account: accounts[0]
