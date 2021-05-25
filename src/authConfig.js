@@ -1,5 +1,9 @@
 import { LogLevel } from "@azure/msal-browser";
 
+export const loginRequest = {
+    scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/api/demo.read","https://fgrsolutionsb2c.onmicrosoft.com/api/demo.write"]
+    // scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/2820b95e-ac83-4f0a-b7dd-d1d76aeee869/demo.read"]
+  };
 
 export const msalConfig = {
     auth: {

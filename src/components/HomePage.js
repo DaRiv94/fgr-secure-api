@@ -1,8 +1,13 @@
+
+// Check out https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=react
+// getting access token https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-acquire-token?tabs=react
+import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import React, { Component } from 'react';
-// import Backdrop from '@material-ui/core/Backdrop';
-// import axios from 'axios';
 import "./HomePage.css"
-// import BeatLoader from "react-spinners/BeatLoader";
+import SignInButton from "./AuthComponents/SignInButton"
+import SignOutButton from "./AuthComponents/SignOutButton"
+import WelcomeUser from "./WelcomUser"
+import ProfileContent from "./AuthComponents/ProfileContent"
 
 export class HomePage extends Component {
     constructor(props) {
@@ -18,14 +23,21 @@ export class HomePage extends Component {
 
     }
 
-
-
     render() {
         return (
             <div>
                 <h1 className="topheader">Secure API</h1>
+                <AuthenticatedTemplate>
+                    <p>This will only render if a user is signed-in.</p>
+                    <WelcomeUser />
+                    <ProfileContent />
+                    <SignOutButton />
+                </AuthenticatedTemplate>
+                <UnauthenticatedTemplate>
+                    <p>This page will only render if a user is not signed-in.</p>
+                    <SignInButton />
+                </UnauthenticatedTemplate>
 
-                
             </div>
         )
     }
