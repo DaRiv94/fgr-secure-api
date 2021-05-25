@@ -2,10 +2,10 @@
 import React from "react";
 import HomePage from "./components/HomePage"
 
-function App() {
+function App(props) {
   return (
     <>
-      <HomePage />
+      <HomePage instance={props.instance} />
     </>
   )
 }

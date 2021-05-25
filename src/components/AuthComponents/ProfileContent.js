@@ -4,12 +4,14 @@ import { loginRequest } from "../../authConfig"
 import { CallMockAPIEndpoint } from "../../api/azurefunctions"
 
 
-export default function ProfileContent() {
+export default function ProfileContent(props) {
     const { instance, accounts } = useMsal();
     const [graphData, setGraphData] = useState(null);
     const [backendMockData, setBackendMockData] = useState(null);
 
     function RequestProfileData() {
+        console.log("RequestProfileData MSAL instance", instance)
+        console.log("RequestProfileData MSAL accounts", accounts)
         // Silently acquires an access token which is then attached to a request for MS Graph data
         instance.acquireTokenSilent({
             ...loginRequest,
@@ -17,6 +19,7 @@ export default function ProfileContent() {
         }).then(async (response) => {
             console.log("RequestProfileData response:", response)
             setGraphData(response)
+            props.setToken(response.accessToken)
 
         });
     }

@@ -12,7 +12,7 @@ const publicClientApplication = new PublicClientApplication(msalConfig);
 ReactDOM.render(
     <React.StrictMode>
         <MsalProvider instance={publicClientApplication}>
-            <App />
+            <App instance={publicClientApplication} />
         </ MsalProvider>
     </React.StrictMode>,
     document.getElementById('root')
