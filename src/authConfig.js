@@ -10,7 +10,8 @@ export const msalConfig = {
         clientId: "b4472f17-dacf-42ed-ad2d-4901f18d1974", //before client was 92e748f9-a1ec-4e0d-b7fd-7dfccd9b9da1
         authority: "https://fgrsolutionsb2c.b2clogin.com/fgrsolutionsb2c.onmicrosoft.com/B2C_1_signupsignin1", //before https://login.microsoftonline/com/common
       //   redirectUri: "https://fgrsecure.surge.sh"
-        redirectUri: "http://localhost:3000/"
+        redirectUri: "https://dariv94.github.io/fgr-secure-api/"
+        // redirectUri: "http://localhost:3000/"
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
