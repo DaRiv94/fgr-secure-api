@@ -8,6 +8,10 @@ import SignInButton from "./AuthComponents/SignInButton"
 import SignOutButton from "./AuthComponents/SignOutButton"
 import WelcomeUser from "./WelcomUser"
 import ProfileContent from "./AuthComponents/ProfileContent"
+import GetToken from "./AuthComponents/GetToken"
+import APICaller from "./APICaller"
+import { CallMockAPIEndpoint } from "../api/apimanagementmockapi"
+import { CallAzureFunction } from "../api/azurefunctions"
 
 export class HomePage extends Component {
 
@@ -19,19 +23,17 @@ export class HomePage extends Component {
             loading: false,
             responseImage: "",
             message: "Select a file to upload.",
-            jwtToken:""
+            jwtToken: ""
 
         }
 
-        this.setToken=this.setToken.bind(this)
+        this.setToken = this.setToken.bind(this)
     }
 
-    setToken(token){
-        console.log("TOKEN:",token)
+    setToken(token) {
         this.setState({
-            jwtToken:token
+            jwtToken: token
         });
-        console.log("this.jwtToken",this.state.jwtToken)
     }
 
     render() {
@@ -39,14 +41,23 @@ export class HomePage extends Component {
             <div>
                 <h1 className="topheader">Secure API</h1>
                 <AuthenticatedTemplate>
-                    <p>This will only render if a user is signed-in.</p>
-                    {this.state.jwtToken ? <p>{"JWT Token"+this.state.jwtToken}</p>:<p>NO TOKEN</p>}
-                    <WelcomeUser />
-                    <ProfileContent setToken={this.setToken}/>
+                    {/* <p>This will only render if a user is signed-in.</p>
+                    {this.state.jwtToken ? <p>TOKEN READY FOR API CALLS!</p>:<p>NO TOKEN</p>} */}
+                    {/* <WelcomeUser /> */}
+                    {/* <ProfileContent setToken={this.setToken}/> */}
+                    <GetToken setToken={this.setToken} />
+
+                    <hr></hr>
+                    <APICaller name={"MOCK ENDPOINT"} apicall={CallMockAPIEndpoint} token={this.state.jwtToken} />
+                    <hr></hr>
+                    <APICaller name={"Azure Function ENDPOINT"} apicall={CallAzureFunction} token={this.state.jwtToken} />
+                    <hr></hr>
                     <SignOutButton />
+
+
                 </AuthenticatedTemplate>
                 <UnauthenticatedTemplate>
-                    <p>This page will only render if a user is not signed-in.</p>
+                    {/* <p>This page will only render if a user is not signed-in.</p> */}
                     <SignInButton />
                 </UnauthenticatedTemplate>
 

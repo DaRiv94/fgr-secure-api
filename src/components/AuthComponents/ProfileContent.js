@@ -1,7 +1,7 @@
 import { useMsal } from "@azure/msal-react";
 import React, { useState, useEffect } from "react";
 import { loginRequest } from "../../authConfig"
-import { CallMockAPIEndpoint } from "../../api/azurefunctions"
+import { CallMockAPIEndpoint } from "../../api/apimanagementmockapi"
 
 import { useIsAuthenticated } from "@azure/msal-react";
 
