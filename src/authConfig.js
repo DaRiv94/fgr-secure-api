@@ -38,8 +38,10 @@ export const msalConfig = {
                     case LogLevel.Verbose:		
                         console.debug(message);		
                         return;		
-                    case LogLevel.Warning:		
+                    default:	
                         console.warn(message);		
+                    // case LogLevel.Warning:		
+                    //     console.warn(message);		
                         return;		
                 }	
             }	

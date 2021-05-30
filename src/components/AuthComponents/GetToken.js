@@ -16,7 +16,7 @@ export default function ProfileContent(props) {
             props.setToken(response.accessToken)
 
         });
-    }, []);
+    });
 
     return (<></>)
 }

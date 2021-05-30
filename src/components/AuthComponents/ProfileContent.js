@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 import { loginRequest } from "../../authConfig"
 import { CallMockAPIEndpoint } from "../../api/apimanagementmockapi"
 
-import { useIsAuthenticated } from "@azure/msal-react";
+// import { useIsAuthenticated } from "@azure/msal-react";
 
 export default function ProfileContent(props) {
     const { instance, accounts } = useMsal();
     const [graphData, setGraphData] = useState(null);
     const [backendMockData, setBackendMockData] = useState(null);
 
-    const isAuthenticated = useIsAuthenticated();
+    // const isAuthenticated = useIsAuthenticated();
 
     //The User should be Authenticated already
     // Otherwise I would use const isAuthenticated = useIsAuthenticated();
@@ -23,7 +23,7 @@ export default function ProfileContent(props) {
             props.setToken(response.accessToken)
 
         });
-    }, []);
+    });
 
     function RequestProfileData() {
         console.log("RequestProfileData MSAL instance", instance)

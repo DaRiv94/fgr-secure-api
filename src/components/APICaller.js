@@ -1,9 +1,9 @@
-import { useMsal } from "@azure/msal-react";
-import React, { useState, useEffect } from "react";
+// import { useMsal } from "@azure/msal-react";
+import React, { useState } from "react";
 // import { loginRequest } from "../../authConfig"
 // import { CallMockAPIEndpoint } from "../../api/azurefunctions"
 
-import { useIsAuthenticated } from "@azure/msal-react";
+// import { useIsAuthenticated } from "@azure/msal-react";
 
 export default function APICaller(props) {
     // const { instance, accounts } = useMsal();
