@@ -12,6 +12,7 @@ import GetToken from "./AuthComponents/GetToken"
 import APICaller from "./APICaller"
 import { CallMockAPIEndpoint } from "../api/apimanagementmockapi"
 import { CallAzureFunction } from "../api/azurefunctions"
+import { CallAKS_KubernetesFunFact, CallAKS_MicrosoftFunFact } from "../api/aks"
 
 export class HomePage extends Component {
 
@@ -51,6 +52,10 @@ export class HomePage extends Component {
                     <APICaller name={"MOCK ENDPOINT"} apicall={CallMockAPIEndpoint} token={this.state.jwtToken} />
                     <hr></hr>
                     <APICaller name={"Azure Function ENDPOINT"} apicall={CallAzureFunction} token={this.state.jwtToken} />
+                    <hr></hr>
+                    <APICaller name={"Azure AKS ENDPOINT Kubernetes Fun Facts"} apicall={CallAKS_KubernetesFunFact} token={this.state.jwtToken} />
+                    <hr></hr>
+                    <APICaller name={"Azure AKS ENDPOINT Microsoft Fun Facts"} apicall={CallAKS_MicrosoftFunFact} token={this.state.jwtToken} />
                     <hr></hr>
                     <SignOutButton />
 

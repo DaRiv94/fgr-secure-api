@@ -43,8 +43,8 @@ export default function APICaller(props) {
     async function RequestAPIData() {
         let apicall = props.apicall
         let response = await apicall(props.token)
-        console.log("RequestAPIData:", response)
-        console.log(typeof(response))
+        // console.log("RequestAPIData:", response)
+        // console.log(typeof(response))
         setApiData(response)
     }
 

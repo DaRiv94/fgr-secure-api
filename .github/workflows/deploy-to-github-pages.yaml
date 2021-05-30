@@ -1,0 +1,35 @@
+name: Deploy to Github Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  setup-build-tag-push-docker-images:
+    name: Build, Tag, Push Docker Images
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: create .env file
+        run: | 
+          cat >.env <<EOL
+          REACT_APP_POST_LOGOUT_REDIRECT_URL="https://dariv94.github.io/fgr-secure-api/"
+          REACT_APP_LOGIN_REDIRECT_URL="https://dariv94.github.io/fgr-secure-api/"
+          EOL
+          cat .env
+
+      - run: npm install
+      - run: npm run deploy
+
+  

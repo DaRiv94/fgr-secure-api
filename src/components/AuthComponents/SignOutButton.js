@@ -1,11 +1,11 @@
 import { useMsal } from "@azure/msal-react";
+import { postLogoutRedirectUri } from "../../authConfig"
 
 function signOutClickHandler(instance) {
     console.log("instance: ", instance)
     const logoutRequest = {
         account: instance.getAccountByHomeId("homeAccountId"),
-        // postLogoutRedirectUri: "https://fgrsecure.surge.sh"
-        postLogoutRedirectUri: "http://localhost:3000"
+        postLogoutRedirectUri: postLogoutRedirectUri
     }
     instance.logoutRedirect(logoutRequest);
 }
