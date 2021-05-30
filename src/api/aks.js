@@ -3,7 +3,7 @@ import axios from "axios";
 export async function CallAKS_KubernetesFunFact(accessToken){
   
     const options = {
-      headers: {'Authorization': accessToken}
+      headers: {'jwtAuthorization': accessToken}
     };
     
     let response = await axios.get('https://fgr-secure-api-management.azure-api.net/aks/kubernetes/funfact', options);
@@ -18,7 +18,7 @@ export async function CallAKS_KubernetesFunFact(accessToken){
 export async function CallAKS_MicrosoftFunFact(accessToken){
   
     const options = {
-      headers: {'Authorization': accessToken}
+      headers: {'jwtAuthorization': accessToken}
     };
     
     let response = await axios.get('https://fgr-secure-api-management.azure-api.net/aks/microsoft/funfact', options);

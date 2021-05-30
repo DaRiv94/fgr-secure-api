@@ -10,8 +10,9 @@ import SignOutButton from "./AuthComponents/SignOutButton"
 // import ProfileContent from "./AuthComponents/ProfileContent"
 import GetToken from "./AuthComponents/GetToken"
 import APICaller from "./APICaller"
-import { CallMockAPIEndpoint } from "../api/apimanagementmockapi"
+import { CallMockEndpoint } from "../api/mockendpoint"
 import { CallAzureFunction } from "../api/azurefunctions"
+import { CallLogicApp } from "../api/logicapp"
 import { CallAKS_KubernetesFunFact, CallAKS_MicrosoftFunFact } from "../api/aks"
 
 export class HomePage extends Component {
@@ -47,16 +48,19 @@ export class HomePage extends Component {
                     {/* <WelcomeUser /> */}
                     {/* <ProfileContent setToken={this.setToken}/> */}
                     <GetToken setToken={this.setToken} />
-
-                    <hr></hr>
-                    <APICaller name={"MOCK ENDPOINT"} apicall={CallMockAPIEndpoint} token={this.state.jwtToken} />
-                    <hr></hr>
-                    <APICaller name={"Azure Function ENDPOINT"} apicall={CallAzureFunction} token={this.state.jwtToken} />
                     <hr></hr>
                     <APICaller name={"Azure AKS ENDPOINT Kubernetes Fun Facts"} apicall={CallAKS_KubernetesFunFact} token={this.state.jwtToken} />
                     <hr></hr>
                     <APICaller name={"Azure AKS ENDPOINT Microsoft Fun Facts"} apicall={CallAKS_MicrosoftFunFact} token={this.state.jwtToken} />
                     <hr></hr>
+                    <APICaller name={"Azure Function ENDPOINT - Computer History Fun Facts"} apicall={CallAzureFunction} token={this.state.jwtToken} />
+                    <hr></hr>
+                    <APICaller name={"Azure Logic App - Frankie Riviera Fun Facts"} apicall={CallLogicApp} token={this.state.jwtToken} />
+                    <hr></hr>
+                    {/* <APICaller name={"MOCK ENDPOINT"} apicall={CallMockEndpoint} token={this.state.jwtToken} />
+                    <hr></hr> */}
+                    
+                    
                     <SignOutButton />
 
 
