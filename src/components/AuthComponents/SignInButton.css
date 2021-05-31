@@ -9,6 +9,7 @@
 
 .SignInButton{
     width: 20%;
+    min-width: 40vw;
     min-height: 4vh;
     height: 8vh;
     border-radius: 25px;
