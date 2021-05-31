@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fgr-secure-api/static/css/main.ba6a63fe.chunk.css",
+    "main.css": "/fgr-secure-api/static/css/main.51a22026.chunk.css",
     "main.js": "/fgr-secure-api/static/js/main.4a870af7.chunk.js",
     "main.js.map": "/fgr-secure-api/static/js/main.4a870af7.chunk.js.map",
     "runtime-main.js": "/fgr-secure-api/static/js/runtime-main.0edbbafa.js",
@@ -8,13 +8,13 @@
     "static/js/2.8491d1b4.chunk.js": "/fgr-secure-api/static/js/2.8491d1b4.chunk.js",
     "static/js/2.8491d1b4.chunk.js.map": "/fgr-secure-api/static/js/2.8491d1b4.chunk.js.map",
     "index.html": "/fgr-secure-api/index.html",
-    "static/css/main.ba6a63fe.chunk.css.map": "/fgr-secure-api/static/css/main.ba6a63fe.chunk.css.map",
+    "static/css/main.51a22026.chunk.css.map": "/fgr-secure-api/static/css/main.51a22026.chunk.css.map",
     "static/js/2.8491d1b4.chunk.js.LICENSE.txt": "/fgr-secure-api/static/js/2.8491d1b4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0edbbafa.js",
     "static/js/2.8491d1b4.chunk.js",
-    "static/css/main.ba6a63fe.chunk.css",
+    "static/css/main.51a22026.chunk.css",
     "static/js/main.4a870af7.chunk.js"
   ]
 }
