@@ -1,0 +1,28 @@
+.SignOutButtonDiv{
+    /* border: red 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vh 0;
+}
+
+
+.SignOutButton{
+    width: 15%;
+    min-width: 40vw;
+    min-height: 3vh;
+    height: 5vh;
+    border-radius: 25px;
+    border: none;
+    background-color: #48b749;
+    color: #e5e6e5;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+.SignOutButton:hover{
+    background-color: #378d39;
+}
+.SignOutButton:active{
+    background-color: #286629;
+}

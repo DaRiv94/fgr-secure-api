@@ -1,5 +1,6 @@
 import { useMsal } from "@azure/msal-react";
 import { postLogoutRedirectUri } from "../../authConfig"
+import "./SignOutButton.css"
 
 function signOutClickHandler(instance) {
     console.log("instance: ", instance)
@@ -15,5 +16,6 @@ export default function SignOutButton() {
     // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
     const { instance } = useMsal();
 
-    return <button onClick={() => signOutClickHandler(instance)}>Sign Out</button>
+    // <div className="SignInButtonDiv" ><button className="SignInButton" onClick={() => signInClickHandler(instance)}>Sign In</button></div>
+    return <div className="SignOutButtonDiv" ><button  className="SignOutButton" onClick={() => signOutClickHandler(instance)}>Sign Out</button></div>
 };

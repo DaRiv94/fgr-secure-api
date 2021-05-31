@@ -1,0 +1,72 @@
+
+
+/* .APICallerDIV{
+    border: red 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10vh 0;
+} */
+
+.APICallerFunFactBtnDIV, .APICallerNameDIV, .APICallerClearBtnDIV, .APICallerDataDIV{
+    /* border: red 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5vh 0;
+}
+
+.APICallerName>*{
+    max-width: 80vw;
+}
+
+.APICallerData{
+    max-width: 80vw;
+}
+
+.APICallerFunFactBtn{
+    width: 50%;
+    min-height: 4vh;
+    height: 6vh;
+    border-radius: 25px;
+    border: none;
+    background-color: #48b749;
+    color: #e5e6e5;
+    font-size: 17px;
+    cursor: pointer;
+    outline: none;
+    /* border: red 1px solid; */
+    display: block;
+    
+}
+
+ .APICallerClearBtn{
+    width: 40%;
+    max-width:650vw;
+    min-height: 4vh;
+    height: 6vh;
+    border-radius: 25px;
+    border: none;
+    background-color: #929292;
+    color: #e5e6e5;
+    font-size: 17px;
+    cursor: pointer;
+    outline: none;
+    /* border: red 1px solid; */
+    display: block;
+    
+}
+
+
+.APICallerFunFactBtn:hover{
+    background-color: #378d39;
+}
+.APICallerFunFactBtn:active{
+    background-color: #286629;
+}
+ .APICallerClearBtn:hover{
+    background-color: #888888;
+}
+ .APICallerClearBtn:active{
+    background-color: #575757;
+}

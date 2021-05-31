@@ -1,0 +1,27 @@
+.SignInButtonDiv{
+    /* border: red 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10vh 0;
+}
+
+
+.SignInButton{
+    width: 20%;
+    min-height: 4vh;
+    height: 8vh;
+    border-radius: 25px;
+    border: none;
+    background-color: #48b749;
+    color: #e5e6e5;
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+}
+.SignInButton:hover{
+    background-color: #378d39;
+}
+.SignInButton:active{
+    background-color: #286629;
+}
