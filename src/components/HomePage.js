@@ -47,7 +47,7 @@ export class HomePage extends Component {
                     {this.state.jwtToken ? <p>TOKEN READY FOR API CALLS!</p>:<p>NO TOKEN</p>} */}
                     {/* <WelcomeUser /> */}
                     {/* <ProfileContent setToken={this.setToken}/> */}
-                    <GetToken setToken={this.setToken} />
+                    {!this.state.jwtToken && <GetToken setToken={this.setToken} />}
                     <hr></hr>
                     <APICaller name={"Azure AKS ENDPOINT Kubernetes Fun Facts"} apicall={CallAKS_KubernetesFunFact} token={this.state.jwtToken} />
                     <hr></hr>

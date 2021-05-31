@@ -7,7 +7,7 @@ export async function CallAzureFunction(accessToken){
     };
     
     let response = await axios.get('https://fgr-secure-api-management.azure-api.net/function-app/ComputerFunFacts', options);
-    console.log("CallAzureFunction response: ",response)
+    // console.log("CallAzureFunction response: ",response)
     
     const funfact = response.data.funfact
     
