@@ -5,18 +5,14 @@ export const postLogoutRedirectUri = process.env.REACT_APP_POST_LOGOUT_REDIRECT_
 // export const postLogoutRedirectUri = "https://dariv94.github.io/fgr-secure-api/"
 
 export const loginRequest = {
-    scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/api/demo.read","https://fgrsolutionsb2c.onmicrosoft.com/api/demo.write"]
-    // scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/2820b95e-ac83-4f0a-b7dd-d1d76aeee869/demo.read"]
+    scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/f5e3ba4f-960f-44c0-bd3d-1f0c4c959f0c/Hello"] // might be able to remove the hello
   };
 
 export const msalConfig = {
     auth: {
-        clientId: "b4472f17-dacf-42ed-ad2d-4901f18d1974", //before client was 92e748f9-a1ec-4e0d-b7fd-7dfccd9b9da1
-        authority: "https://fgrsolutionsb2c.b2clogin.com/fgrsolutionsb2c.onmicrosoft.com/B2C_1_signupsignin1", //before https://login.microsoftonline/com/common
-      //   redirectUri: "https://fgrsecure.surge.sh"
+        clientId: "4bb294af-8713-4f8e-913d-a7fb84eba271", //client of frontend app registration
+        authority: "https://fgrsolutionsb2c.b2clogin.com/fgrsolutionsb2c.onmicrosoft.com/B2C_1_FGR_Secure_app_Frontend_signupandsignin", //before https://login.microsoftonline/com/common
         redirectUri: process.env.REACT_APP_LOGIN_REDIRECT_URL
-        // redirectUri: "https://dariv94.github.io/fgr-secure-api/"
-        // redirectUri: "http://localhost:3000/"
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
