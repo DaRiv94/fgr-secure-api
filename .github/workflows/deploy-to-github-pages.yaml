@@ -13,15 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Checkout Code
-      #   uses: actions/checkout@v2
       - name: Checkout Code
         uses: actions/checkout@v2.3.1
-
-      # - name: Install node
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '14'
 
       - name: create .env file
         run: | 
@@ -34,52 +27,8 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      # - name: Init new repo in dist folder and commit generated files
-      #   run: |
-      #     git init
-      #     git add -A
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git commit -m 'deploy'
-
       - name: Deploy From https://github.com/marketplace/actions/deploy-to-github-pages
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: ./build # The folder the action should deploy.
-
-      # - name: Force push to destination branch
-      #   uses: ad-m/github-push-action@v0.5.0
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     # this might change depending on whether you are publishing a site for a normal repo or a user/organization repo
-      #     branch: gh-pages
-      #     force: true
-      #     directory: ./build
-
-# Using Github Pages instead of Surge, but leaving this here for future reference
-# name: Deploy Website via Surge
-# env: 
-#   CI: false
-# on:
-#   push:
-#     branches: [ master ]
-#   pull_request:
-#     branches: [ master ]
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     name: Deploying to surge
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Install surge and fire deployment
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: '14'
-#       - run: npm install -g surge
-#       - run: npm install
-#       - run: npm run build
-#       - run: cp ./build/index.html ./build/200.html
-#       - run: ls ./build
-#       - run: surge ./build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
