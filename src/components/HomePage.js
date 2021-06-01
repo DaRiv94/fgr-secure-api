@@ -1,13 +1,8 @@
-
-// Check out https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=react
-// getting access token https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-acquire-token?tabs=react
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import React, { Component } from 'react';
 import "./HomePage.css"
 import SignInButton from "./AuthComponents/SignInButton"
 import SignOutButton from "./AuthComponents/SignOutButton"
-// import WelcomeUser from "./WelcomUser"
-// import ProfileContent from "./AuthComponents/ProfileContent"
 import GetToken from "./AuthComponents/GetToken"
 import APICaller from "./APICaller"
 import { kubernetesfunfactdescription, microsoftfunfactdescription, computerhistoryfunfactdescription, frankierivierafunfactdescription } from "./apidescriptions"
@@ -21,12 +16,7 @@ export class HomePage extends Component {
         super(props)
 
         this.state = {
-            selectedFile: "",
-            loading: false,
-            responseImage: "",
-            message: "Select a file to upload.",
             jwtToken: ""
-
         }
 
         this.setToken = this.setToken.bind(this)
@@ -59,10 +49,8 @@ export class HomePage extends Component {
                         </p>
                     </div>
 
-                    {/* <p>This will only render if a user is signed-in.</p>
-                    {this.state.jwtToken ? <p>TOKEN READY FOR API CALLS!</p>:<p>NO TOKEN</p>} */}
+                    {/* {this.state.jwtToken ? <p>TOKEN READY FOR API CALLS!</p>:<p>NO TOKEN</p>} */}
                     {/* <WelcomeUser /> */}
-                    {/* <ProfileContent setToken={this.setToken}/> */}
                     {!this.state.jwtToken && <GetToken setToken={this.setToken} />}
                     <hr></hr>
                     <APICaller name={"Azure Kubernetes Service endpoint - Kubernetes Fun Facts"} description={kubernetesfunfactdescription} apicall={CallAKS_KubernetesFunFact} token={this.state.jwtToken} />
@@ -76,9 +64,7 @@ export class HomePage extends Component {
                     {/* <APICaller name={"MOCK ENDPOINT"} apicall={CallMockEndpoint} token={this.state.jwtToken} />
                     <hr></hr> */}
 
-
                     <SignOutButton />
-
 
                 </AuthenticatedTemplate>
                 <UnauthenticatedTemplate>

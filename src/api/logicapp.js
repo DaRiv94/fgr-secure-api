@@ -7,7 +7,6 @@ export async function CallLogicApp(accessToken){
     };
     
     let response = await axios.get('https://fgr-secure-api-management.azure-api.net/frankie/request/paths/invoke/', options);
-    // console.log("CallLogicApp response: ",response)
     
     const funfact = response.data.funfact
     

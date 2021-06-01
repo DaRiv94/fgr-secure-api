@@ -1,17 +1,15 @@
 import { LogLevel } from "@azure/msal-browser";
 
-// export const postLogoutRedirectUri = "http://localhost:3000"
 export const postLogoutRedirectUri = process.env.REACT_APP_POST_LOGOUT_REDIRECT_URL
-// export const postLogoutRedirectUri = "https://dariv94.github.io/fgr-secure-api/"
 
 export const loginRequest = {
-    scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/f5e3ba4f-960f-44c0-bd3d-1f0c4c959f0c/Hello"] // might be able to remove the hello
+    scopes: ["openid","https://fgrsolutionsb2c.onmicrosoft.com/f5e3ba4f-960f-44c0-bd3d-1f0c4c959f0c/Hello"] // might remove hello
   };
 
 export const msalConfig = {
     auth: {
         clientId: "4bb294af-8713-4f8e-913d-a7fb84eba271", //client of frontend app registration
-        authority: "https://fgrsolutionsb2c.b2clogin.com/fgrsolutionsb2c.onmicrosoft.com/B2C_1_FGR_Secure_app_Frontend_signupandsignin", //before https://login.microsoftonline/com/common
+        authority: "https://fgrsolutionsb2c.b2clogin.com/fgrsolutionsb2c.onmicrosoft.com/B2C_1_FGR_Secure_app_Frontend_signupandsignin", 
         redirectUri: process.env.REACT_APP_LOGIN_REDIRECT_URL
     },
     cache: {
