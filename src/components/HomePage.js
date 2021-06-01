@@ -10,7 +10,7 @@ import SignOutButton from "./AuthComponents/SignOutButton"
 // import ProfileContent from "./AuthComponents/ProfileContent"
 import GetToken from "./AuthComponents/GetToken"
 import APICaller from "./APICaller"
-import {kubernetesfunfactdescription, microsoftfunfactdescription, computerhistoryfunfactdescription, frankierivierafunfactdescription} from "./apidescriptions"
+import { kubernetesfunfactdescription, microsoftfunfactdescription, computerhistoryfunfactdescription, frankierivierafunfactdescription } from "./apidescriptions"
 import { CallAzureFunction } from "../api/azurefunctions"
 import { CallLogicApp } from "../api/logicapp"
 import { CallAKS_KubernetesFunFact, CallAKS_MicrosoftFunFact } from "../api/aks"
@@ -43,18 +43,29 @@ export class HomePage extends Component {
             <div className="HomePageDiv" >
                 <h1 className="topheader">FGR Secure API</h1>
                 <AuthenticatedTemplate>
-                        <div className="HomeInfoDiv">
+                    <div className="HomeInfoDiv">
                         <p>
                             You can learn more about this live demo <a rel="noreferrer" target="_blank" href="https://frankieriviera.com" >HERE</a>
                         </p>
-                        </div>
+                    </div>
+                    <div className="HomeInfoDiv">
+                        <p>
+                            NOTE: With API Management Consumption Tier, APIs may experience cold starts.
+                        </p>
+                    </div>
+                    <div className="HomeInfoDiv">
+                        <p>
+                            NOTE: Due to a limited number of fun facts in database, the same fun fact may be returned when an API is called.
+                        </p>
+                    </div>
+
                     {/* <p>This will only render if a user is signed-in.</p>
                     {this.state.jwtToken ? <p>TOKEN READY FOR API CALLS!</p>:<p>NO TOKEN</p>} */}
                     {/* <WelcomeUser /> */}
                     {/* <ProfileContent setToken={this.setToken}/> */}
                     {!this.state.jwtToken && <GetToken setToken={this.setToken} />}
                     <hr></hr>
-                    <APICaller name={"Azure Kubernetes Service endpoint - Kubernetes Fun Facts"} description={kubernetesfunfactdescription}  apicall={CallAKS_KubernetesFunFact} token={this.state.jwtToken} />
+                    <APICaller name={"Azure Kubernetes Service endpoint - Kubernetes Fun Facts"} description={kubernetesfunfactdescription} apicall={CallAKS_KubernetesFunFact} token={this.state.jwtToken} />
                     <hr></hr>
                     <APICaller name={"Azure Kubernetes Service endpoint - Microsoft Fun Facts"} description={microsoftfunfactdescription} apicall={CallAKS_MicrosoftFunFact} token={this.state.jwtToken} />
                     <hr></hr>
@@ -78,7 +89,7 @@ export class HomePage extends Component {
                             The APIs accessed through this gate way include Two different APIs within a Azure Kuberentes Service Cluster, An Azure Function, and an Azure Logic App.
                             Sign in using an existing Microsoft account, or Signup with an email to test out the Live APIS.
                         </p>
-                        </div>
+                    </div>
                     <SignInButton />
                 </UnauthenticatedTemplate>
 
